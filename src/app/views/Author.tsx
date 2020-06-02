@@ -11,4 +11,4 @@ export const Author = () => {
             </div>
         </React.Fragment>
     );
-}
+};

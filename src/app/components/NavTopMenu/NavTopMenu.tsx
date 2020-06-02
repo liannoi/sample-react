@@ -1,25 +1,24 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import {Container, Nav, Navbar} from 'react-bootstrap';
 
 import './NavTopMenu.css';
 
 export const NavTopMenu = () => {
     return (
         <header>
-            <nav className="navbar navbar-expand-sm navbar-dark bg-dark border-bottom">
-                <div className="container">
-                    <Link className="navbar-brand" to="/">Hometask</Link>
-                    <button className="navbar-toggler"><span className="navbar-toggler-icon"/></button>
+            <Navbar bg="dark" expand="lg" variant="dark">
+                <Container>
+                    <NavLink className="navbar-brand" to="/">Hometask</NavLink>
+                    <Navbar.Toggle aria-controls="top-menu-header"/>
 
-                    <div className="navbar-collapse collapse d-sm-inline-flex">
-                        <ul className="navbar-nav mr-auto">
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/authors">Authors</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+                    <Navbar.Collapse id="top-menu-header">
+                        <Nav className="mr-auto">
+                            <NavLink className="nav-link" to="/authors">Authors</NavLink>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         </header>
     );
 };

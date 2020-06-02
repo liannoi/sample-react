@@ -1,5 +1,6 @@
 import React from 'react';
 import {Switch} from 'react-router-dom';
+import {Container} from 'react-bootstrap';
 
 import {NavTopMenu} from '../components/NavTopMenu/NavTopMenu';
 import {MakeRouteWithSubRoutes, routes} from '../common/routing';
@@ -9,13 +10,13 @@ export const App = () => {
         <React.Fragment>
             <NavTopMenu/>
 
-            <div className="container">
+            <Container>
                 <main role="main">
                     <Switch>
                         {routes.map((route, index) => <MakeRouteWithSubRoutes key={index} {...route} />)}
                     </Switch>
                 </main>
-            </div>
+            </Container>
         </React.Fragment>
     );
 };
