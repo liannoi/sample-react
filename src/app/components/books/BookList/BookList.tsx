@@ -1,29 +1,25 @@
 import React from 'react';
 
-import {AuthorsListViewModel} from '../shared/authorsListViewModel';
-import {AuthorsService} from '../shared/authorsService';
-import './AuthorList.css';
+import {BooksListViewModel} from '../shared/booksListViewModel';
+import {BooksService} from '../shared/booksService';
 import {LinkCreate} from '../../../core/components/LinkCreate/LinkCreate';
+import './BookList.css';
 import {NavLink} from 'react-router-dom';
 
-type AuthorListProps = {}
-type AuthorListState = { viewModel: AuthorsListViewModel }
+type BookListProps = {}
+type BookListState = { viewModel: BooksListViewModel }
 
-export class AuthorList extends React.Component<AuthorListProps, AuthorListState> {
-    private authorsService: AuthorsService;
+export class BookList extends React.Component<BookListProps, BookListState> {
+    private booksService: BooksService;
 
-    constructor(props: AuthorListProps) {
+    constructor(props: BookListProps) {
         super(props);
-        this.state = {viewModel: {authors: []}};
-        this.authorsService = new AuthorsService();
+        this.state = {viewModel: {books: []}};
+        this.booksService = new BooksService();
     }
 
     public async componentDidMount(): Promise<void> {
-        await this.fetchAuthors();
-    }
-
-    public capitalizeFirstLetter(str: string): string {
-        return str.charAt(0).toUpperCase() + str.slice(1);
+        await this.fetchBooks();
     }
 
     public render() {
@@ -31,7 +27,7 @@ export class AuthorList extends React.Component<AuthorListProps, AuthorListState
             <React.Fragment>
                 <div className="row mt-5 mb-4 text-center">
                     <div className="col-sm-12">
-                        <h2>Authors</h2>
+                        <h2>Books</h2>
                     </div>
                 </div>
 
@@ -43,17 +39,17 @@ export class AuthorList extends React.Component<AuthorListProps, AuthorListState
                         <table className="table border table-sm table-striped">
                             <thead className="thead-light table-bordered">
                             <tr>
-                                <th>Last Name</th>
-                                <th>First Name</th>
+                                <th>Title</th>
+                                <th>Year</th>
                                 <th className="text-black-50">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
                             {
-                                this.state.viewModel.authors.map((item, index) => (
+                                this.state.viewModel.books.map((item, index) => (
                                     <tr key={index}>
-                                        <td className="text-uppercase font-weight-bolder">{item.authorLastName}</td>
-                                        <td>{this.capitalizeFirstLetter(item.authorName.toLowerCase())}</td>
+                                        <td>{item.bookName}</td>
+                                        <td>{item.publishYear}</td>
 
                                         <td>
                                             <NavLink
@@ -80,7 +76,7 @@ export class AuthorList extends React.Component<AuthorListProps, AuthorListState
         );
     }
 
-    private async fetchAuthors(): Promise<void> {
-        this.setState({viewModel: await this.authorsService.getAll()});
+    private async fetchBooks(): Promise<void> {
+        this.setState({viewModel: await this.booksService.getAll()});
     }
 }

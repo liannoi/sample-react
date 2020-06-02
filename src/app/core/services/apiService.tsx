@@ -1,5 +1,5 @@
 export interface ApiService<TModel, TListModel> {
-    getAll(timeout?: number): Promise<TListModel>;
+    getAll(): Promise<TListModel>;
 
     /*create(model: TModel): Promise<TModel>;
 

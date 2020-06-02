@@ -3,11 +3,16 @@ import {Route} from 'react-router-dom';
 
 import {Home} from './components/Home/Home';
 import {AuthorList} from './components/authors/AuthorList/AuthorList';
+import {BookList} from './components/books/BookList/BookList';
 
 export const routes = [
     {
         path: '/authors',
         component: AuthorList,
+    },
+    {
+        path: '/books',
+        component: BookList,
     },
     {
         path: '/',

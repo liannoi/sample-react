@@ -7,7 +7,7 @@ export abstract class AbstractApiService<TModel, TListModel> implements ApiServi
         this.endpoint = endpoint;
     }
 
-    public getAll(timeout?: number): Promise<TListModel> {
+    public getAll(): Promise<TListModel> {
         return fetch(this.endpoint).then(response => response.json());
     }
 }
