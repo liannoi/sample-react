@@ -1,13 +1,13 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 
-import {Home} from '../components/Home/Home';
-import {Author} from '../views/Author';
+import {Home} from './components/Home/Home';
+import {AuthorList} from './components/authors/AuthorList/AuthorList';
 
 export const routes = [
     {
         path: '/authors',
-        component: Author,
+        component: AuthorList,
     },
     {
         path: '/',

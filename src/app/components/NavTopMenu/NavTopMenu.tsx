@@ -15,6 +15,7 @@ export const NavTopMenu = () => {
                     <Navbar.Collapse id="top-menu-header">
                         <Nav className="mr-auto">
                             <NavLink className="nav-link" to="/authors">Authors</NavLink>
+                            <NavLink className="nav-link" to="/books">Books</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

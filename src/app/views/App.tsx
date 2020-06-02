@@ -3,7 +3,7 @@ import {Switch} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 
 import {NavTopMenu} from '../components/NavTopMenu/NavTopMenu';
-import {routes, AppRouting} from '../common/appRouting';
+import {AppRouting, routes} from '../appRouting';
 
 export const App = () => {
     return (
