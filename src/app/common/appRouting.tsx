@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
+
 import {Home} from '../components/Home/Home';
 import {Author} from '../views/Author';
 
@@ -15,13 +16,8 @@ export const routes = [
 ];
 
 // @ts-ignore
-export const MakeRouteWithSubRoutes = route => {
+export const AppRouting = route => {
     return (
-        <Route
-            path={route.path}
-            render={props => (
-                <route.component {...props} routes={route.routes}/>
-            )}
-        />
+        <Route path={route.path} render={props => (<route.component {...props} routes={route.routes}/>)}/>
     );
 };
